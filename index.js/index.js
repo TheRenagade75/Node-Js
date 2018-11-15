@@ -1,13 +1,13 @@
-const http = require("http");
+const http = require('http');
 const port = 3000;
 
 const requestHandler = (request, response) => {
-  if (request.url == "/") {
+  if (request.url === '/') {
     return response.end("Bienvenue sur votre serveur !!");
-  } else if (request.url == "/contact") {
+  } else if (request.url === '/contact') {
     return response.end("Nous ne sommes pas joignables pour le moment !");
-  } else if (request.url == "/display/Romuald") {
-    return response.end("Vous tentez d’afficher le profil de Romuald");
+  } else if (request.url.includes('display')) {
+    return response.end("Vous tentez d’afficher le profil de" + request.url.slice(9));
   }
 };
 
